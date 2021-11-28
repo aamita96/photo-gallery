@@ -1,0 +1,94 @@
+:root {
+    --background-color: #34363b;
+    --white: #fff;
+    --lightGray: #a0a0a1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+
+/* 
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+*/
+.container {
+    display: grid;
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+}
+
+.item {
+    position: relative;
+    cursor: pointer;
+}
+
+.item span {
+    bottom: 3%;
+    position: absolute;
+    color: var(--white);
+    left: 3.5%;
+    text-transform: uppercase;
+    font-size: 11.73px;
+}
+
+footer {
+    background-color: var(--background-color);
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    color: var(--white);
+    padding: 1%;
+    text-align: center;
+}
+
+footer span {
+    color: var(--lightGray);
+}
+
+.backdrop {
+    position: fixed;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal {
+    position: fixed;
+    display: none;
+    z-index: 200;
+    width: 100%;
+}
+.modal .close {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    z-index: 222;
+    cursor: pointer;
+}
+
+.active {
+    display: block;
+}
+
+@media (min-width: 40rem) {
+    .container {
+        /* 
+         * grid-template-columns: 1fr 1fr 1fr;  -- can also be written as  
+         * grid-template-columns: repeat(3,1fr);  or    
+         * grid-template-columns: 33.3% auto auto;
+         * will all give same output
+         */
+        grid-template-columns: 33.3% auto auto;
+    }
+}
